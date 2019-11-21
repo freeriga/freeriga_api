@@ -1,0 +1,28 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Free Riga API V1",
+    "version": "v1"
+  },
+  "paths": {
+  },
+  "definitions": {
+    "errors_object": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "$ref": "#/definitions/errors_map"
+        }
+      }
+    },
+    "errors_map": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

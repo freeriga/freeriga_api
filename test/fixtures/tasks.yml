@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: one
+  username: MyString
+  colour: MyString
+  status: 1
+
+two:
+  location: two
+  username: MyString
+  colour: MyString
+  status: 1
