@@ -1,0 +1,16 @@
+ru:
+  hello: "Hello world"
+  devise:
+    failure:
+      unauthenticated: 'You must be signed in to access this API.'
+  api:
+    errors:
+      error_403: 'You are not authorized to do this.'
+      error_404: 'Item not found.'
+      error_401: 'You must be signed in to be able to do this.'
+      error_422: 'This request could not be processed.'
+  activerecord:
+    errors:
+      models:
+        comment:
+          must_have_text_in_one_language: 'Must have text in at least one language.'
