@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_222621) do
+ActiveRecord::Schema.define(version: 2019_11_22_233359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,9 @@ ActiveRecord::Schema.define(version: 2019_11_22_222621) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "location_id"
+    t.integer "user_id"
     t.index ["item_type", "item_id"], name: "index_comments_on_item_type_and_item_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "entries", force: :cascade do |t|
@@ -78,7 +80,9 @@ ActiveRecord::Schema.define(version: 2019_11_22_222621) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_location_id"
+    t.integer "user_id"
     t.index ["location_id"], name: "index_tasks_on_location_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
     t.index ["user_location_id"], name: "index_tasks_on_user_location_id"
   end
 

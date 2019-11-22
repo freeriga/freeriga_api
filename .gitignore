@@ -20,7 +20,8 @@ public/uploads/*
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
-
+config/credentials.yml.enc 
+config/credentials/*
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.

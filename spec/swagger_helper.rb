@@ -69,7 +69,8 @@ RSpec.configure do |config|
             username:    { type: :string },
             location_id: { type: :number },
             colour:      { type: :string },
-            body:        { type: :string }
+            body:        { type: :string },
+            user_id:          { type: :number }
           },
           required: %w[username location_id colour body]
         },
@@ -81,7 +82,8 @@ RSpec.configure do |config|
             location_id:      { type: :number },
             status:           { type: :number },
             colour:           { type: :string },
-            summary:          { type: :string }
+            summary:          { type: :string },
+            user_id:          { type: :number }
           },
           required: %w[username colour user_location_id status]
         }

@@ -1,6 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :item, polymorphic: true
   belongs_to :location
+  belongs_to :user, optional: true
   translates :body
   validates :item, presence: true
   validates :username, presence: true

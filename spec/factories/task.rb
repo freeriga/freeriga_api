@@ -12,5 +12,8 @@ FactoryBot.define do
         Faker::TvShows::Community.quotes
       end
     end
+    trait :with_user do
+      association :user
+    end
   end
 end

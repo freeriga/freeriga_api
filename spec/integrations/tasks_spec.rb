@@ -23,8 +23,8 @@ describe 'Tasks API', type: :request do
       let(:task) { { username: 'Jacko Fuckhead', user_location_id: location.id,  translations_attributes: [{ locale: 'en', summary: 'I like cheese. This is a terrible idea. I hate everything.'}], colour: '#342342', status: 2} } 
 
       before do
-        terminal = FactoryBot.create(:terminal)
-        @auth_headers = terminal.create_new_auth_token
+        user = FactoryBot.create(:user)
+        @auth_headers = user.create_new_auth_token
       end
 
       after do |example|
@@ -32,6 +32,9 @@ describe 'Tasks API', type: :request do
       end
 
       response 201, 'Task successfully created' do
+        before do
+          task.user_id = user.id
+        end
         run_test!
       end
 

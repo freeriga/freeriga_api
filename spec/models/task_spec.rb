@@ -10,7 +10,7 @@ RSpec.describe Task, type: :model do
   end
 
   it 'has a valid factory' do
-    expect(FactoryBot.build(:task).save).to be true
+    expect(FactoryBot.build(:task, :with_user).save).to be true
   end
 
   it 'must have a name in at least one language' do

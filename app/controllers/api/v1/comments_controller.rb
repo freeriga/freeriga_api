@@ -46,7 +46,7 @@ module Api::V1
 
     protected
       def comment_params
-        params.require(:comment).permit(:username, :location_id, :colour, translations_attributes: [:id, :locale, :body, :_destroy])
+        params.require(:comment).permit(:username, :location_id, :user_id, :colour, translations_attributes: [:id, :locale, :body, :_destroy])
       end
 
   end

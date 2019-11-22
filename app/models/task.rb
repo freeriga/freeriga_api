@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :location
+  belongs_to :user, optional: true
   belongs_to :user_location, class_name: 'Location'
   translates :summary
   has_many :comments, as: :item

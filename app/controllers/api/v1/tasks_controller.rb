@@ -28,7 +28,7 @@ module Api::V1
     protected
 
       def task_params
-        params.require(:task).permit(:status, :username, :user_location_id, :colour, :location_id, 
+        params.require(:task).permit(:status, :username, :user_id, :user_location_id, :colour, :location_id, 
           translations_attributes: [:id, :locale, :summary, :_destroy])
       end
   end
