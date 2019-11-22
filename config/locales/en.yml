@@ -31,6 +31,9 @@
 
 en:
   hello: "Hello world"
+  devise:
+    failure:
+      unauthenticated: 'You must be signed in to access this API.'
   api:
     errors:
       error_403: 'You are not authorized to do this.'

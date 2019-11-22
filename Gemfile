@@ -9,7 +9,7 @@ gem 'rails', '~> 6.0.0'
 # gem 'sqlite3', '~> 1.4'
 gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -23,6 +23,9 @@ gem 'redis', '~> 4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'cancancan'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-rvm'
+gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 gem 'devise_token_auth'
 gem 'globalize', github: 'globalize/globalize', branch: :master
 gem 'globalize-accessors'
