@@ -21,7 +21,11 @@ module Api::V1
         # render json: { data: {body: @comment.body, colour: @comment.colour, created_at: @comment.created_at, id: @comment.id,
           # item_id: @comment.item_id, item_type: @comment.item_type, location_id: @comment.location_id, updated_at: @comment.updated_at,
           # username: @comment.username, entry_id: @item.entry_id}}, status: :created
-          render json: EntrySerializer.new(@item.entry).serialized_json, status: :created
+          if [Location, Quarter].include?(@item.class)
+            render json: EntrySerializer.new(@comment.entry).serialized_json, status: :created
+          else
+            render json: EntrySerializer.new(@item.entry).serialized_json, status: :created
+          end
       else
         respond_with_errors(@comment)
       end

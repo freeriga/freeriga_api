@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'Terminal', at: 'terminal_auth', controllers: { sessions: 'api/v1/sessions' }
+  mount_devise_token_auth_for 'User', at: 'auth', controllers: { sessions: 'api/v1/sessions', omniauth_callbacks: "api/v1/omniauth_callbacks", token_validations: 'api/v1/token_validations' }
+  as :user do
+    # Define routes for User within this block.
+  end
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
   mount ActionCable.server => '/cable'

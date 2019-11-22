@@ -4,7 +4,9 @@ class Location < ApplicationRecord
   validates :quarter, presence: true
   has_many :comments, as: :item, dependent: :destroy
   has_many :tasks, dependent: :destroy
+  has_many :users
   # has_one :entry, as: :item
+
   # after_save :update_entry
 
   # def update_entry

@@ -27,12 +27,11 @@ gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-rvm'
 gem 'capistrano3-puma', github: "seuros/capistrano-puma"
 gem 'devise_token_auth'
+gem 'fast_jsonapi'
 gem 'globalize', github: 'globalize/globalize', branch: :master
 gem 'globalize-accessors'
 gem 'kaminari'
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
-gem 'fast_jsonapi'
+gem 'omniauth-facebook'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rolify'
 gem 'rswag'

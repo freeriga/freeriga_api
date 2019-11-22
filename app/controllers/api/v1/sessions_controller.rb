@@ -52,8 +52,12 @@ module Api::V1
     end
 
     def render_create_success
-      render json: TerminalSerializer.new(@resource, {include: [:location]}).serialized_json, status: 200
-      
+      if @resource.class == Terminal
+        render json: TerminalSerializer.new(@resource, {include: [:location]}).serialized_json, status: 200
+      else
+        render json: UserSerializer.new(@resource, {include: [:location]}).serialized_json, status: 200
+
+      end
       # render json: {
       #   data: resource_data(resource_json: @resource.token_validation_response)
       # }

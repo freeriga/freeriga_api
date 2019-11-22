@@ -7,12 +7,14 @@ module Api::V1
 
     # skip_load_and_authorize_resource only: :home
     # load_and_authorize_resource except: :home
-    before_action :authenticate_terminal!
+    devise_token_auth_group :member, contains: [:user, :terminal]
+    before_action :authenticate_member!
 
     def home
       render json: { name: 'Free Riga API', environment: Rails.env.to_s }, status: 200
       #, release: Rails.env.development? ? `git describe`.gsub(/\n/, '').gsub(/^v/, '') : '',
         # gitref: Rails.env.development? ? `git rev-parse HEAD`.gsub(/\n/, '') : `cat REVISION`.gsub(/\n/, '') , migration:  ActiveRecord::Migrator.current_version }
     end
+
   end
 end
