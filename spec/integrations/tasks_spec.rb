@@ -20,11 +20,10 @@ describe 'Tasks API', type: :request do
       description 'Create a task for a location'
       security [client: [], 'Access-Token': [], uid: []]
       parameter name: :task, in: :body, schema: { '$ref' => '#/definitions/task_object' }
-      let(:task) { { username: 'Jacko Fuckhead', user_location_id: location.id,  translations_attributes: [{ locale: 'en', summary: 'I like cheese. This is a terrible idea. I hate everything.'}], colour: '#342342', status: 2} } 
 
       before do
-        user = FactoryBot.create(:user)
-        @auth_headers = user.create_new_auth_token
+        @user = FactoryBot.create(:user)
+        @auth_headers = @user.create_new_auth_token
       end
 
       after do |example|
@@ -32,13 +31,12 @@ describe 'Tasks API', type: :request do
       end
 
       response 201, 'Task successfully created' do
-        before do
-          task.user_id = user.id
-        end
+        let(:task) { { user_id: @user.id, username: 'Jacko Fuckhead', user_location_id: location.id,  translations_attributes: [{ locale: 'en', summary: 'I like cheese. This is a terrible idea. I hate everything.'}], colour: '#342342', status: 2} } 
         run_test!
       end
 
       response 401, 'Not authenticated' do
+        let(:task) { { user_id: @user.id, username: 'Jacko Fuckhead', user_location_id: location.id,  translations_attributes: [{ locale: 'en', summary: 'I like cheese. This is a terrible idea. I hate everything.'}], colour: '#342342', status: 2} }         
         let(:uid) { '' }
         run_test!
       end
