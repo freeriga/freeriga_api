@@ -43,6 +43,24 @@ class EntrySerializer
   #     obj.item.item.name
   #   end
   # end  
+  attribute :image_box do |obj|
+    begin
+      if obj.item.image.attached?
+        obj.item.image.variant(resize_to_limit: [350, 350]).processed.service_url
+      else
+        nil
+      end
+    rescue ActiveStorage::FileNotFoundError
+      'https://cdn0.iconfinder.com/data/icons/interface-set-vol-2/50/No_data_No_info_Missing-512.png'
+    end
+  end
+  attribute :image_url do |obj|
+    if obj.item.image.attached?
+      obj.item.image.service_url
+    else
+      nil
+    end
+  end
   attribute :username do |obj|
     obj.item.username
   end

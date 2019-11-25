@@ -14,6 +14,7 @@ class Comment < ApplicationRecord
   before_save :prevent_nested_comments
   after_save :update_entry
   has_many :comments, as: :item
+  has_one_attached :image
 
   class Translation
     after_save :destroy_if_blank

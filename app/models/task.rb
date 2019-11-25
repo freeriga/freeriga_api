@@ -14,6 +14,7 @@ class Task < ApplicationRecord
   accepts_nested_attributes_for :translations, allow_destroy: true, reject_if: lambda {|x| x['summary'].blank? }
   has_one :entry, as: :item, dependent: :destroy
   after_save :update_entry
+  has_one_attached :image
 
   def update_entry
     Entry.find_or_create_by(item: self).touch

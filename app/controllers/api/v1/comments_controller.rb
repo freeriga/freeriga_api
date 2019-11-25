@@ -1,6 +1,5 @@
 module Api::V1
   class Api::V1::CommentsController < ApiController
-    load_and_authorize_resource only: :create
     
     def create
       if params[:entry_id]

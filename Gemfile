@@ -21,6 +21,8 @@ gem 'redis', '~> 4.0'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+
+gem 'aws-sdk-s3', require: false
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'cancancan'
 gem 'capistrano-rails', '~> 1.4'
@@ -30,15 +32,19 @@ gem 'devise_token_auth'
 gem 'fast_jsonapi'
 gem 'globalize', github: 'globalize/globalize', branch: :master
 gem 'globalize-accessors'
+gem 'image_processing', '~> 1.2'
 gem 'kaminari'
 gem 'omniauth-facebook'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rolify'
 gem 'rswag'
 gem 'rspec-core'
+gem 'ruby-vips'
 
 
 group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

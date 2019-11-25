@@ -7,9 +7,15 @@ class Ability
     if user.class == Terminal
         can :create, Comment
         can :create, Task
+        can :read, Quarter
+        can :read, Entry
+    elsif user.class == User
+        can :create, Comment
+        can :create, Task
         can :create, Location
         can :read, Quarter
         can :read, Entry
+        can [:read, :update], user
     end
     # Define abilities for the passed in user here. For example:
     #

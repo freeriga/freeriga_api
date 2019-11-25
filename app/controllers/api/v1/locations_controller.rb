@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 module Api::V1
   class Api::V1::LocationsController < ApiController
-
+    skip_before_action :authenticate_member!, only: :index
+    
     def create
       quarter = Quarter.find(params[:quarter_id])
       existing = quarter.locations.where('lower(name) = ?', params[:location][:name].downcase)

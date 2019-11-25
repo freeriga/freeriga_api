@@ -5,8 +5,13 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::StatementInvalid, with: :respond_with_errors
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
+  def render_403(action, resource)
+    raise CanCan::AccessDenied.new(I18n.t('api.errors.error_403'), action, resource)
+  end
+
   def current_ability
-    @current_ability ||= Ability.new(current_terminal)
+    @current_ability ||= Ability.new(current_member)
   end
 
   def render_not_found_response(exception)
@@ -40,8 +45,8 @@ class ApplicationController < ActionController::API
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in, keys: %i[login password])
-    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email name location_id])
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[email name location_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[email name nickname location_id])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[email name nickname location_id])
   end
 
 end
