@@ -32,6 +32,7 @@ module Api::V1
         @resource.nickname = auth_hash["info"]["name"].parameterize
         @resource.email = auth_hash["info"]["email"]
         @resource.name = auth_hash["info"]["name"]
+        @resource.location_id = 1
       end
       set_token_on_resource
       create_auth_params
