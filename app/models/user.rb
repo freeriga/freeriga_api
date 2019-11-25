@@ -10,4 +10,7 @@ class User < ActiveRecord::Base
   belongs_to :location
   has_one_attached :avatar
 
+  def headers_for(action)
+  {:from => 'Free Riga <terminal@freeriga.lv>'}
+  end
 end
