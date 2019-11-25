@@ -16,6 +16,25 @@ class Task < ApplicationRecord
   after_save :update_entry
   has_one_attached :image
 
+  class Translation
+    after_save :destroy_if_blank
+    # validates :name, presence: true
+    validate :locale_is_approved
+    validates :locale, presence: true, uniqueness: { scope: :task_id }
+
+    private
+
+    def locale_is_approved
+      return true if I18n.available_locales.map(&:to_s).include?(locale)
+    end
+
+    def destroy_if_blank
+      if summary.blank?
+        self.destroy
+      end
+    end
+  end
+  
   def update_entry
     Entry.find_or_create_by(item: self).touch
   end
