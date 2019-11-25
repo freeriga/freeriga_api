@@ -33,7 +33,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = {from: 'no-reply@freeriga.lv', host: "api.freeriga.lv"}
+  config.action_mailer.default_options = {from: 'terminal@freeriga.lv', host: "api.freeriga.lv"}
   config.action_mailer.default_url_options = { host: "api.freeriga.lv" }
   # Mount Action Cable outside main process or domain.
   config.action_cable.mount_path = '/cable'
