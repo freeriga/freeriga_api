@@ -2,7 +2,7 @@
 
 Devise.setup do |config|
   require 'devise/orm/active_record'  
-  config.mailer_sender = 'info@freeriga.lv'
+  config.mailer_sender = 'terminal@freeriga.lv'
   config.authentication_keys = [:login]
   config.case_insensitive_keys = [:login]
 end
