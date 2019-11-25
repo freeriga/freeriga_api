@@ -107,3 +107,16 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 end
+
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  address:             'mail.freeriga.lv',
+  port:                587,
+  domain:              'freeriga.lv',
+  user_name:           Rails.application.credentials.dig(:smtp, :username),
+  password:            Rails.application.credentials.dig(:smtp, :password),
+  authentication:      :login,
+  ssl:                 false,
+  enable_starttls_auto: true
+}
+
