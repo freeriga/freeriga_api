@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
          # :omniauthable, :omniauth_providers => [:facebook]
   include DeviseTokenAuth::Concerns::User
   belongs_to :location
+  has_many :tasks
+  has_many :comments
   has_one_attached :avatar
 
   def headers_for(action)

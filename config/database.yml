@@ -22,4 +22,4 @@ test:
 
 production:
   <<: *default
-  database: freeriga-production
+  database: freeriga

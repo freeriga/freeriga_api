@@ -55,7 +55,7 @@ class Comment < ApplicationRecord
       :colour => self.colour,
       :created_at => self.created_at,
       :updated_at => self.updated_at,
-      :body => self.body
+      :body => self.body_translations.first.last
     }    
   end
 
