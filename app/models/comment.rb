@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :item, polymorphic: true
   belongs_to :location
   belongs_to :user, optional: true
-  translates :body
+  translates :body, fallbacks_for_empty_translations: true
   validates :item, presence: true
   validates :username, presence: true
   validates :colour, presence: true

@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   belongs_to :location
   belongs_to :user, optional: true
   belongs_to :user_location, class_name: 'Location'
-  translates :summary
+  translates :summary, fallbacks_for_empty_translations: true
   has_many :comments, as: :item
   validates :username, presence: true
   validates :colour, presence: true
