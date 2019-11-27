@@ -3,7 +3,7 @@ class EntrySerializer
   attributes :item_type, :item_id, :created_at, :updated_at
   attribute :text do |obj|
     if obj.item.class == Task
-      obj.item.summary
+      obj.item.summary_translations.first.last 
     elsif obj.item.class == Comment
       obj.item.body
     end
